@@ -58,7 +58,6 @@ exports.post_new_reiew = (req, res) => {
         let query =  `INSERT INTO tbl_comments (comments_id, comments_auth, comments_copy, comments_date, comments_movie, comments_rating) VALUES (NULL, NULL, "${req.body.comment}", CURRENT_TIMESTAMP(), "${req.body.id}", "${req.body.stars}")`
         
         connect.query(query, (err, rows)=>{
-            connection.release();
             if (err) {
                 return console.log(err.message)
             }
